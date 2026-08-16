@@ -3,345 +3,729 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BNX</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>DSA Daily Tracker</title>
 
 <style>
+
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background: #050816;
-    color:white;
-    overflow-x:hidden;
+    background:#0d1117;
+    color:#e6edf3;
+    font-family:Arial, sans-serif;
+    padding:40px;
 }
 
-/* Animated Background */
-body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(56,189,248,0.2), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(139,92,246,0.2), transparent 30%),
-        radial-gradient(circle at 50% 80%, rgba(14,165,233,0.2), transparent 30%);
-    animation: moveBg 12s infinite alternate;
-    z-index:-1;
+.container{
+    max-width:1100px;
+    margin:auto;
 }
 
-@keyframes moveBg{
-    100%{
-        transform:scale(1.2) translateY(-30px);
-    }
-}
+/* HEADER */
 
-/* Navbar */
-header{
-    position:sticky;
-    top:0;
+.header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
-    backdrop-filter:blur(15px);
-    background:rgba(255,255,255,0.05);
-    border-bottom:1px solid rgba(255,255,255,0.1);
-    z-index:100;
+    margin-bottom:35px;
 }
 
-.logo{
-    font-size:30px;
-    font-weight:800;
-    background:linear-gradient(90deg,#38bdf8,#8b5cf6);
-    -webkit-background-clip:text;
-    color:transparent;
+.title h1{
+    font-size:28px;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    transition:0.3s;
+.title p{
+    color:#8b949e;
+    margin-top:6px;
 }
 
-nav a:hover{
-    color:#38bdf8;
-}
+/* MONTH */
 
-/* Hero */
-.hero{
-    min-height:100vh;
+.month{
     display:flex;
-    flex-direction:column;
-    justify-content:center;
     align-items:center;
-    text-align:center;
-    padding:40px;
-    animation:fadeIn 1.5s ease;
+    gap:15px;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.hero h1{
-    font-size:5rem;
-    background:linear-gradient(90deg,#38bdf8,#8b5cf6);
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:pulse 3s infinite;
-}
-
-@keyframes pulse{
-    50%{
-        transform:scale(1.05);
-    }
-}
-
-.hero p{
-    max-width:750px;
-    margin:20px 0;
-    color:#cbd5e1;
-    font-size:1.2rem;
-}
-
-.btn{
-    padding:15px 35px;
-    border-radius:14px;
-    text-decoration:none;
+.month button{
+    background:#161b22;
     color:white;
-    font-weight:700;
-    background:linear-gradient(90deg,#38bdf8,#8b5cf6);
-    box-shadow:0 0 20px rgba(56,189,248,0.5);
-    transition:0.4s;
+    border:1px solid #30363d;
+    padding:7px 12px;
+    border-radius:6px;
+    cursor:pointer;
 }
 
-.btn:hover{
-    transform:translateY(-6px) scale(1.05);
+.month button:hover{
+    background:#21262d;
 }
 
-/* Sections */
-section{
-    padding:90px 8%;
+#monthName{
+    font-weight:bold;
 }
 
-h2{
-    text-align:center;
-    font-size:2.5rem;
-    margin-bottom:40px;
-    color:#38bdf8;
+/* STATS */
+
+.stats{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
 }
 
-/* Cards */
-.cards{
+.stat{
+    background:#161b22;
+    border:1px solid #30363d;
+    padding:18px 25px;
+    border-radius:8px;
+    min-width:150px;
+}
+
+.stat p{
+    color:#8b949e;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.stat h2{
+    font-size:24px;
+}
+
+/* LEGEND */
+
+.legend{
+    display:flex;
+    gap:20px;
+    margin-bottom:18px;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-size:13px;
+    color:#8b949e;
+}
+
+.legend-box{
+    width:13px;
+    height:13px;
+    border-radius:3px;
+}
+
+.green{
+    background:#39d353;
+}
+
+.orange{
+    background:#f0883e;
+}
+
+.blue{
+    background:#58a6ff;
+}
+
+/* CALENDAR */
+
+.calendar{
+    background:#161b22;
+    border:1px solid #30363d;
+    padding:25px;
+    border-radius:10px;
+    overflow-x:auto;
+}
+
+.weekdays{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(7, 1fr);
+    gap:7px;
+    margin-bottom:10px;
 }
 
-.card{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(15px);
-    padding:28px;
-    border-radius:22px;
-    transition:0.4s;
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(45deg,transparent,rgba(255,255,255,0.08),transparent);
-    transform:translateX(-100%);
-    transition:0.8s;
-}
-
-.card:hover::before{
-    transform:translateX(100%);
-}
-
-.card:hover{
-    transform:translateY(-12px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.4);
-}
-
-.card h3{
-    color:#8b5cf6;
-    margin-bottom:15px;
-}
-
-/* Community Head */
-.head-card{
-    max-width:700px;
-    margin:auto;
+.weekdays div{
     text-align:center;
-    background:linear-gradient(135deg,rgba(56,189,248,0.15),rgba(139,92,246,0.15));
-    border:2px solid #38bdf8;
+    color:#8b949e;
+    font-size:12px;
 }
 
-.head-name{
-    font-size:2.3rem;
-    font-weight:800;
+/* DAYS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    gap:7px;
 }
 
-.expertise{
-    display:inline-block;
-    margin-top:15px;
-    padding:10px 20px;
-    background:#8b5cf6;
-    border-radius:999px;
-    font-weight:600;
+.day{
+    min-height:85px;
+    border:1px solid #30363d;
+    border-radius:6px;
+    padding:7px;
+    background:#0d1117;
 }
 
-/* Footer */
-footer{
-    text-align:center;
-    padding:30px;
-    color:#94a3b8;
+.day-number{
+    font-size:12px;
+    color:#8b949e;
+    margin-bottom:8px;
 }
+
+/* TASK BUTTONS */
+
+.tasks{
+    display:flex;
+    gap:5px;
+}
+
+.task{
+    width:19px;
+    height:19px;
+    border-radius:4px;
+    border:1px solid #30363d;
+    cursor:pointer;
+    transition:.15s;
+}
+
+.task:hover{
+    transform:scale(1.1);
+}
+
+/* ACTIVE */
+
+.video.active{
+    background:#39d353;
+    border-color:#39d353;
+}
+
+.leetcode.active{
+    background:#f0883e;
+    border-color:#f0883e;
+}
+
+.github.active{
+    background:#58a6ff;
+    border-color:#58a6ff;
+}
+
+/* EMPTY DAYS */
+
+.empty{
+    visibility:hidden;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    body{
+        padding:20px;
+    }
+
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .stats{
+        flex-wrap:wrap;
+    }
+
+    .stat{
+        flex:1;
+    }
+
+}
+
 </style>
+
 </head>
+
 <body>
 
-<header>
-    <div class="logo">BNX</div>
-    <nav>
-        <a href="#head">Head</a>
-        <a href="#groups">Groups</a>
-        <a href="#projects">Projects</a>
-    </nav>
-</header>
+<div class="container">
 
-<section class="hero">
-    <h1>BOSE NEXUS</h1>
-    <p>
-        Building innovative problem-solving apps and software solutions at BOSE Cuttack.
-<br>
-<b>Headquarter- Room-203,2nd yr Gents Hostel Bose</b>
-    </p>
-    <a href="https://chat.whatsapp.com/Ldniqckwq0A3g9NA9ADMeG?s=cl&p=a&ilr=1" class="btn">
-        Join BNX Community
-    </a>
-</section>
+    <!-- HEADER -->
 
-<section id="head">
-    <h2>Community Head</h2>
-    <div class="card head-card">
-        <div class="head-name">Ankit Nanda</div>
-        <div class="expertise">Role-Project Director</div>
-        <p style="margin-top:20px;">
-            Leading BNX to create impactful student-built products, scalable software,
-            and startup-grade solutions inside BOSE Cuttack.
-        </p>
-    </div>
-</section>
+    <div class="header">
 
-<section id="groups">
-    <h2>Community Groups</h2>
-    <div class="cards">
+        <div class="title">
 
-        <div class="card">
-            <h3>Development Team</h3>
-            <p>Builds apps, websites and backend systems.</p>
+            <h1>DSA Daily Tracker</h1>
+
+            <p>
+                One video • One LeetCode • One GitHub push
+            </p>
+
         </div>
 
-        <div class="card">
-            <h3>UI/UX Team</h3>
-            <p>Creates clean and modern product interfaces.</p>
-        </div>
+        <div class="month">
 
-        <div class="card">
-            <h3>Research Team</h3>
-            <p>Finds real college problems to solve.</p>
-        </div>
+            <button onclick="previousMonth()">‹</button>
 
-        <div class="card">
-            <h3>Growth Team</h3>
-            <p>Expands BNX reach across BOSE campus.</p>
+            <span id="monthName"></span>
+
+            <button onclick="nextMonth()">›</button>
+
         </div>
 
     </div>
-</section>
 
-<section id="projects">
-    <h2>Project Ideas</h2>
-    <div class="cards">
 
-        <div class="card">
-            <h3>StudyVault</h3>
-            <p>Semester notes sharing platform.<br>
-     <marquee>UI Version-1.0 Released 📢</marquee>
-</p>
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <p>📺 VIDEOS</p>
+
+            <h2 id="videoCount">0</h2>
+
         </div>
 
-        <div class="card">
-            <h3>Coming Soon</h3>
-            <p>Related to Solution for reduce paper work in College</p>
+        <div class="stat">
+
+            <p>🟧 LEETCODE</p>
+
+            <h2 id="leetcodeCount">0</h2>
+
         </div>
 
-        <div class="card">
-            <h3>Vendor Locator</h3>
-            <p>Find food stalls near campus.</p>
+        <div class="stat">
+
+            <p>🔵 GITHUB</p>
+
+            <h2 id="githubCount">0</h2>
+
         </div>
 
-        <div class="card">
-            <h3>Coming Soon</h3>
-            <p>E-Sports Organizer platform [website]</p>
+        <div class="stat">
+
+            <p>🔥 PERFECT DAYS</p>
+
+            <h2 id="perfectCount">0</h2>
+
         </div>
 
     </div>
-    <h2>We're Hiring</h2>
 
-    <div class="card hiring-card">
-        <h1>JOIN BNX CORE TEAM</h1>
 
-        <p>
-            BOSE NEXUS is looking for passionate builders to create the next generation
-            of student-driven software solutions.
-        </p>
+    <!-- LEGEND -->
 
-        <div class="hiring-grid">
+    <div class="legend">
 
-            <div class="hire-box">
-                <h3>🎨 UI/UX Designer</h3>
-                <p>
-                    Create modern interfaces, user flows, wireframes,
-                    and stunning product experiences.
-                </p>
-            </div>
+        <div class="legend-item">
 
-            <div class="hire-box">
-                <h3>🧠 Problem Solver</h3>
-                <p>
-                    Identify real problem and design solution 
-                </p>
-<br>
+            <div class="legend-box green"></div>
 
-        <a href="https://wa.me/?text=*BNX%20APPLICATION%20FORM*%0A%0AName%20-%20%0ABranch%20-%20%0AYear%20-%20%0AJob%20(UI%2FUX%20Designer%20or%20Problem%20Solver%2FResearcher)%20-%20%0AWhy%20do%20you%20want%20to%20join%20BNX%20-%20"
-class="btn apply-btn">
-    Apply Now
-</a>
+            Video
+
+        </div>
+
+        <div class="legend-item">
+
+            <div class="legend-box orange"></div>
+
+            LeetCode
+
+        </div>
+
+        <div class="legend-item">
+
+            <div class="legend-box blue"></div>
+
+            GitHub
+
+        </div>
+
     </div>
-</section>
 
-<footer>
-    © 2026 BNX | BOSE NEXUS | Built by Ankit Nanda
-</footer>
+
+    <!-- CALENDAR -->
+
+    <div class="calendar">
+
+        <div class="weekdays">
+
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+
+        </div>
+
+        <div id="grid" class="grid"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==============================
+   CURRENT MONTH
+============================== */
+
+let currentDate = new Date();
+
+let currentMonth =
+    currentDate.getMonth();
+
+let currentYear =
+    currentDate.getFullYear();
+
+
+/* ==============================
+   STORAGE
+============================== */
+
+let data =
+    JSON.parse(
+        localStorage.getItem("dsaTracker")
+    ) || {};
+
+
+/* ==============================
+   SAVE
+============================== */
+
+function save(){
+
+    localStorage.setItem(
+        "dsaTracker",
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* ==============================
+   DATE KEY
+============================== */
+
+function getKey(year,month,day){
+
+    return `${year}-${month+1}-${day}`;
+
+}
+
+
+/* ==============================
+   RENDER
+============================== */
+
+function render(){
+
+    const grid =
+        document.getElementById("grid");
+
+    grid.innerHTML="";
+
+
+    const date =
+        new Date(
+            currentYear,
+            currentMonth,
+            1
+        );
+
+    const firstDay =
+        date.getDay();
+
+    const days =
+        new Date(
+            currentYear,
+            currentMonth + 1,
+            0
+        ).getDate();
+
+
+    /* MONTH NAME */
+
+    document.getElementById(
+        "monthName"
+    ).textContent =
+        date.toLocaleString(
+            "default",
+            {
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+
+    /* EMPTY CELLS */
+
+    for(let i=0;i<firstDay;i++){
+
+        const empty =
+            document.createElement("div");
+
+        empty.className="day empty";
+
+        grid.appendChild(empty);
+
+    }
+
+
+    /* DAYS */
+
+    for(let day=1;day<=days;day++){
+
+        const key =
+            getKey(
+                currentYear,
+                currentMonth,
+                day
+            );
+
+
+        if(!data[key]){
+
+            data[key]={
+                video:false,
+                leetcode:false,
+                github:false
+            };
+
+        }
+
+
+        const cell =
+            document.createElement("div");
+
+        cell.className="day";
+
+
+        /* DATE */
+
+        const number =
+            document.createElement("div");
+
+        number.className="day-number";
+
+        number.textContent=day;
+
+        cell.appendChild(number);
+
+
+        /* TASKS */
+
+        const tasks =
+            document.createElement("div");
+
+        tasks.className="tasks";
+
+
+        /* VIDEO */
+
+        const video =
+            createTask(
+                "video",
+                "📺 Video",
+                key
+            );
+
+
+        /* LEETCODE */
+
+        const leetcode =
+            createTask(
+                "leetcode",
+                "🧩 LeetCode",
+                key
+            );
+
+
+        /* GITHUB */
+
+        const github =
+            createTask(
+                "github",
+                "🐙 GitHub",
+                key
+            );
+
+
+        tasks.appendChild(video);
+        tasks.appendChild(leetcode);
+        tasks.appendChild(github);
+
+        cell.appendChild(tasks);
+
+        grid.appendChild(cell);
+
+    }
+
+
+    updateStats();
+
+}
+
+
+/* ==============================
+   CREATE TASK
+============================== */
+
+function createTask(type,title,key){
+
+    const el =
+        document.createElement("div");
+
+    el.className =
+        `task ${type}`;
+
+
+    if(data[key][type]){
+
+        el.classList.add("active");
+
+    }
+
+
+    el.title=title;
+
+
+    el.onclick=function(){
+
+        data[key][type] =
+            !data[key][type];
+
+        save();
+
+        render();
+
+    };
+
+
+    return el;
+
+}
+
+
+/* ==============================
+   STATS
+============================== */
+
+function updateStats(){
+
+    let videos=0;
+    let leetcode=0;
+    let github=0;
+    let perfect=0;
+
+
+    Object.keys(data).forEach(key=>{
+
+        const d=data[key];
+
+
+        /* Only current month */
+
+        if(
+            key.startsWith(
+                `${currentYear}-${currentMonth+1}-`
+            )
+        ){
+
+            if(d.video)
+                videos++;
+
+            if(d.leetcode)
+                leetcode++;
+
+            if(d.github)
+                github++;
+
+            if(
+                d.video &&
+                d.leetcode &&
+                d.github
+            ){
+
+                perfect++;
+
+            }
+
+        }
+
+    });
+
+
+    document.getElementById(
+        "videoCount"
+    ).textContent=videos;
+
+
+    document.getElementById(
+        "leetcodeCount"
+    ).textContent=leetcode;
+
+
+    document.getElementById(
+        "githubCount"
+    ).textContent=github;
+
+
+    document.getElementById(
+        "perfectCount"
+    ).textContent=perfect;
+
+}
+
+
+/* ==============================
+   MONTH NAVIGATION
+============================== */
+
+function previousMonth(){
+
+    currentMonth--;
+
+    if(currentMonth<0){
+
+        currentMonth=11;
+        currentYear--;
+
+    }
+
+    render();
+
+}
+
+
+function nextMonth(){
+
+    currentMonth++;
+
+    if(currentMonth>11){
+
+        currentMonth=0;
+        currentYear++;
+
+    }
+
+    render();
+
+}
+
+
+/* ==============================
+   START
+============================== */
+
+render();
+
+</script>
 
 </body>
 </html>
