@@ -26,7 +26,53 @@ body{
     margin:auto;
 }
 
-/* HEADER */
+/* ==============================
+   NAVIGATION
+============================== */
+
+.nav{
+    display:flex;
+    gap:10px;
+    margin-bottom:30px;
+    border-bottom:1px solid #21262d;
+    padding-bottom:15px;
+}
+
+.nav button{
+    background:#161b22;
+    color:#8b949e;
+    border:1px solid #30363d;
+    padding:9px 16px;
+    border-radius:7px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.nav button:hover{
+    background:#21262d;
+    color:white;
+}
+
+.nav button.active{
+    color:#58a6ff;
+    border-color:#58a6ff;
+}
+
+/* ==============================
+   PAGES
+============================== */
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* ==============================
+   HEADER
+============================== */
 
 .header{
     display:flex;
@@ -44,7 +90,9 @@ body{
     margin-top:6px;
 }
 
-/* MONTH */
+/* ==============================
+   MONTH
+============================== */
 
 .month{
     display:flex;
@@ -69,7 +117,9 @@ body{
     font-weight:bold;
 }
 
-/* STATS */
+/* ==============================
+   STATS
+============================== */
 
 .stats{
     display:flex;
@@ -95,7 +145,9 @@ body{
     font-size:24px;
 }
 
-/* LEGEND */
+/* ==============================
+   LEGEND
+============================== */
 
 .legend{
     display:flex;
@@ -129,7 +181,9 @@ body{
     background:#58a6ff;
 }
 
-/* CALENDAR */
+/* ==============================
+   CALENDAR
+============================== */
 
 .calendar{
     background:#161b22;
@@ -141,7 +195,7 @@ body{
 
 .weekdays{
     display:grid;
-    grid-template-columns:repeat(7, 1fr);
+    grid-template-columns:repeat(7,1fr);
     gap:7px;
     margin-bottom:10px;
 }
@@ -152,11 +206,13 @@ body{
     font-size:12px;
 }
 
-/* DAYS */
+/* ==============================
+   DAYS
+============================== */
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(7, 1fr);
+    grid-template-columns:repeat(7,1fr);
     gap:7px;
 }
 
@@ -174,7 +230,9 @@ body{
     margin-bottom:8px;
 }
 
-/* TASK BUTTONS */
+/* ==============================
+   TASK BUTTONS
+============================== */
 
 .tasks{
     display:flex;
@@ -194,8 +252,6 @@ body{
     transform:scale(1.1);
 }
 
-/* ACTIVE */
-
 .video.active{
     background:#39d353;
     border-color:#39d353;
@@ -211,18 +267,260 @@ body{
     border-color:#58a6ff;
 }
 
-/* EMPTY DAYS */
+/* ==============================
+   EMPTY DAYS
+============================== */
 
 .empty{
     visibility:hidden;
 }
 
-/* MOBILE */
+/* =========================================================
+   DSA TOPICS PAGE
+========================================================= */
+
+.topics-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.topics-header h1{
+    font-size:28px;
+}
+
+.topics-header p{
+    color:#8b949e;
+    margin-top:6px;
+}
+
+.add-btn{
+    background:#238636;
+    color:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.add-btn:hover{
+    background:#2ea043;
+}
+
+/* ==============================
+   TOPIC PROGRESS
+============================== */
+
+.topic-progress{
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.progress-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+.progress-header span{
+    color:#8b949e;
+}
+
+.progress-bar{
+    width:100%;
+    height:13px;
+    background:#30363d;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#58a6ff;
+    transition:.3s;
+}
+
+/* ==============================
+   ADD TOPIC FORM
+============================== */
+
+.add-topic-box{
+    display:none;
+    background:#161b22;
+    border:1px solid #30363d;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.add-topic-box.show{
+    display:block;
+}
+
+.add-topic-box h3{
+    margin-bottom:15px;
+}
+
+.topic-form{
+    display:flex;
+    gap:10px;
+}
+
+.topic-input{
+    flex:1;
+    background:#0d1117;
+    border:1px solid #30363d;
+    color:white;
+    padding:11px;
+    border-radius:7px;
+    outline:none;
+}
+
+.topic-input:focus{
+    border-color:#58a6ff;
+}
+
+.save-topic{
+    background:#58a6ff;
+    color:#0d1117;
+    border:none;
+    padding:10px 18px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.cancel-topic{
+    background:transparent;
+    color:#8b949e;
+    border:1px solid #30363d;
+    padding:10px 15px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* ==============================
+   TOPIC LIST
+============================== */
+
+.topic-list{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.topic{
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:8px;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.topic-left{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    min-width:0;
+}
+
+/* CHECKBOX */
+
+.topic-checkbox{
+    appearance:none;
+    width:21px;
+    height:21px;
+    min-width:21px;
+    border:2px solid #8b949e;
+    border-radius:5px;
+    cursor:pointer;
+    position:relative;
+}
+
+.topic-checkbox:checked{
+    background:#238636;
+    border-color:#238636;
+}
+
+.topic-checkbox:checked::after{
+    content:"✓";
+    position:absolute;
+    left:3px;
+    top:-2px;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.topic.completed .topic-name{
+    text-decoration:line-through;
+    color:#6e7681;
+}
+
+.topic-name{
+    word-break:break-word;
+}
+
+/* DELETE */
+
+.delete-btn{
+    background:transparent;
+    border:none;
+    color:#8b949e;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.delete-btn:hover{
+    color:#f85149;
+}
+
+/* EMPTY */
+
+.empty-topics{
+    text-align:center;
+    padding:50px 20px;
+    background:#161b22;
+    border:1px dashed #30363d;
+    border-radius:10px;
+    color:#8b949e;
+}
+
+.empty-topics h3{
+    color:white;
+    margin-bottom:7px;
+}
+
+.empty-icon{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+/* ==============================
+   MOBILE
+============================== */
 
 @media(max-width:700px){
 
     body{
         padding:20px;
+    }
+
+    .nav{
+        overflow-x:auto;
+    }
+
+    .nav button{
+        white-space:nowrap;
     }
 
     .header{
@@ -237,6 +535,26 @@ body{
 
     .stat{
         flex:1;
+        min-width:130px;
+    }
+
+    .topics-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .add-btn{
+        width:100%;
+    }
+
+    .topic-form{
+        flex-direction:column;
+    }
+
+    .save-topic,
+    .cancel-topic{
+        width:100%;
     }
 
 }
@@ -249,120 +567,277 @@ body{
 
 <div class="container">
 
-    <!-- HEADER -->
+    <!-- ==============================
+         NAVIGATION
+    ============================== -->
 
-    <div class="header">
+    <div class="nav">
 
-        <div class="title">
+        <button
+            id="trackerNav"
+            class="active"
+            onclick="showPage('trackerPage',this)">
 
-            <h1>DSA Daily Tracker</h1>
+            📅 Daily Tracker
 
-            <p>
-                One video • One LeetCode • One GitHub push
-            </p>
+        </button>
+
+        <button
+            id="topicsNav"
+            onclick="showPage('topicsPage',this)">
+
+            📚 DSA Topics
+
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         DAILY TRACKER PAGE
+    ===================================================== -->
+
+    <div id="trackerPage" class="page active">
+
+        <!-- HEADER -->
+
+        <div class="header">
+
+            <div class="title">
+
+                <h1>DSA Daily Tracker</h1>
+
+                <p>
+                    One video • One LeetCode • One GitHub push
+                </p>
+
+            </div>
+
+            <div class="month">
+
+                <button onclick="previousMonth()">
+                    ‹
+                </button>
+
+                <span id="monthName"></span>
+
+                <button onclick="nextMonth()">
+                    ›
+                </button>
+
+            </div>
 
         </div>
 
-        <div class="month">
 
-            <button onclick="previousMonth()">‹</button>
+        <!-- STATS -->
 
-            <span id="monthName"></span>
+        <div class="stats">
 
-            <button onclick="nextMonth()">›</button>
+            <div class="stat">
+
+                <p>📺 VIDEOS</p>
+
+                <h2 id="videoCount">0</h2>
+
+            </div>
+
+
+            <div class="stat">
+
+                <p>🟧 LEETCODE</p>
+
+                <h2 id="leetcodeCount">0</h2>
+
+            </div>
+
+
+            <div class="stat">
+
+                <p>🔵 GITHUB</p>
+
+                <h2 id="githubCount">0</h2>
+
+            </div>
+
+
+            <div class="stat">
+
+                <p>🔥 PERFECT DAYS</p>
+
+                <h2 id="perfectCount">0</h2>
+
+            </div>
+
+        </div>
+
+
+        <!-- LEGEND -->
+
+        <div class="legend">
+
+            <div class="legend-item">
+
+                <div class="legend-box green"></div>
+
+                Video
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <div class="legend-box orange"></div>
+
+                LeetCode
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <div class="legend-box blue"></div>
+
+                GitHub
+
+            </div>
+
+        </div>
+
+
+        <!-- CALENDAR -->
+
+        <div class="calendar">
+
+            <div class="weekdays">
+
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+
+            </div>
+
+
+            <div id="grid" class="grid"></div>
 
         </div>
 
     </div>
 
 
-    <!-- STATS -->
+    <!-- =====================================================
+         DSA TOPICS PAGE
+    ===================================================== -->
 
-    <div class="stats">
+    <div id="topicsPage" class="page">
 
-        <div class="stat">
+        <!-- HEADER -->
 
-            <p>📺 VIDEOS</p>
+        <div class="topics-header">
 
-            <h2 id="videoCount">0</h2>
+            <div>
 
-        </div>
+                <h1>📚 DSA Topics</h1>
 
-        <div class="stat">
+                <p>
+                    Create your own DSA roadmap and track it.
+                </p>
 
-            <p>🟧 LEETCODE</p>
+            </div>
 
-            <h2 id="leetcodeCount">0</h2>
 
-        </div>
+            <button
+                class="add-btn"
+                onclick="toggleTopicForm()">
 
-        <div class="stat">
+                + Add Topic
 
-            <p>🔵 GITHUB</p>
-
-            <h2 id="githubCount">0</h2>
-
-        </div>
-
-        <div class="stat">
-
-            <p>🔥 PERFECT DAYS</p>
-
-            <h2 id="perfectCount">0</h2>
+            </button>
 
         </div>
 
-    </div>
+
+        <!-- PROGRESS -->
+
+        <div class="topic-progress">
+
+            <div class="progress-header">
+
+                <strong>DSA Progress</strong>
+
+                <span id="topicProgressText">
+                    0 / 0
+                </span>
+
+            </div>
 
 
-    <!-- LEGEND -->
+            <div class="progress-bar">
 
-    <div class="legend">
+                <div
+                    id="topicProgressFill"
+                    class="progress-fill">
+                </div>
 
-        <div class="legend-item">
-
-            <div class="legend-box green"></div>
-
-            Video
-
-        </div>
-
-        <div class="legend-item">
-
-            <div class="legend-box orange"></div>
-
-            LeetCode
-
-        </div>
-
-        <div class="legend-item">
-
-            <div class="legend-box blue"></div>
-
-            GitHub
+            </div>
 
         </div>
 
-    </div>
+
+        <!-- ADD TOPIC -->
+
+        <div
+            id="addTopicBox"
+            class="add-topic-box">
+
+            <h3>
+                ➕ Add DSA Topic
+            </h3>
 
 
-    <!-- CALENDAR -->
+            <div class="topic-form">
 
-    <div class="calendar">
+                <input
+                    id="topicInput"
+                    class="topic-input"
+                    type="text"
+                    maxlength="100"
+                    placeholder="Example: Arrays"
+                    autocomplete="off">
 
-        <div class="weekdays">
 
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
+                <button
+                    class="save-topic"
+                    onclick="addTopic()">
+
+                    Add
+
+                </button>
+
+
+                <button
+                    class="cancel-topic"
+                    onclick="closeTopicForm()">
+
+                    Cancel
+
+                </button>
+
+            </div>
 
         </div>
 
-        <div id="grid" class="grid"></div>
+
+        <!-- TOPICS -->
+
+        <div
+            id="topicList"
+            class="topic-list">
+        </div>
 
     </div>
 
@@ -371,9 +846,11 @@ body{
 
 <script>
 
-/* ==============================
-   CURRENT MONTH
-============================== */
+/* =========================================================
+   DAILY TRACKER
+========================================================= */
+
+/* CURRENT MONTH */
 
 let currentDate = new Date();
 
@@ -384,9 +861,7 @@ let currentYear =
     currentDate.getFullYear();
 
 
-/* ==============================
-   STORAGE
-============================== */
+/* STORAGE */
 
 let data =
     JSON.parse(
@@ -394,9 +869,7 @@ let data =
     ) || {};
 
 
-/* ==============================
-   SAVE
-============================== */
+/* SAVE */
 
 function save(){
 
@@ -408,9 +881,7 @@ function save(){
 }
 
 
-/* ==============================
-   DATE KEY
-============================== */
+/* DATE KEY */
 
 function getKey(year,month,day){
 
@@ -419,9 +890,7 @@ function getKey(year,month,day){
 }
 
 
-/* ==============================
-   RENDER
-============================== */
+/* RENDER */
 
 function render(){
 
@@ -438,8 +907,10 @@ function render(){
             1
         );
 
+
     const firstDay =
         date.getDay();
+
 
     const days =
         new Date(
@@ -526,8 +997,6 @@ function render(){
         tasks.className="tasks";
 
 
-        /* VIDEO */
-
         const video =
             createTask(
                 "video",
@@ -536,8 +1005,6 @@ function render(){
             );
 
 
-        /* LEETCODE */
-
         const leetcode =
             createTask(
                 "leetcode",
@@ -545,8 +1012,6 @@ function render(){
                 key
             );
 
-
-        /* GITHUB */
 
         const github =
             createTask(
@@ -572,9 +1037,7 @@ function render(){
 }
 
 
-/* ==============================
-   CREATE TASK
-============================== */
+/* CREATE TASK */
 
 function createTask(type,title,key){
 
@@ -612,9 +1075,7 @@ function createTask(type,title,key){
 }
 
 
-/* ==============================
-   STATS
-============================== */
+/* STATS */
 
 function updateStats(){
 
@@ -628,8 +1089,6 @@ function updateStats(){
 
         const d=data[key];
 
-
-        /* Only current month */
 
         if(
             key.startsWith(
@@ -683,9 +1142,7 @@ function updateStats(){
 }
 
 
-/* ==============================
-   MONTH NAVIGATION
-============================== */
+/* MONTH NAVIGATION */
 
 function previousMonth(){
 
@@ -719,11 +1176,424 @@ function nextMonth(){
 }
 
 
-/* ==============================
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(pageId,button){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+
+            page.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll(".nav button")
+        .forEach(btn=>{
+
+            btn.classList.remove("active");
+
+        });
+
+
+    button.classList.add("active");
+
+
+    if(pageId==="topicsPage"){
+
+        renderTopics();
+
+    }
+
+}
+
+
+/* =========================================================
+   DSA TOPICS
+========================================================= */
+
+/*
+    Topics use a SEPARATE localStorage key:
+
+    dsaTopics
+
+    Therefore your existing daily tracker data
+    stored in "dsaTracker" remains untouched.
+*/
+
+let topics =
+    JSON.parse(
+        localStorage.getItem("dsaTopics")
+    ) || [];
+
+
+/* SAVE TOPICS */
+
+function saveTopics(){
+
+    localStorage.setItem(
+        "dsaTopics",
+        JSON.stringify(topics)
+    );
+
+}
+
+
+/* OPEN / CLOSE FORM */
+
+function toggleTopicForm(){
+
+    const box =
+        document.getElementById(
+            "addTopicBox"
+        );
+
+
+    box.classList.toggle("show");
+
+
+    if(box.classList.contains("show")){
+
+        document
+            .getElementById("topicInput")
+            .focus();
+
+    }
+
+}
+
+
+function closeTopicForm(){
+
+    document
+        .getElementById("addTopicBox")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("topicInput")
+        .value="";
+
+}
+
+
+/* ADD TOPIC */
+
+function addTopic(){
+
+    const input =
+        document.getElementById(
+            "topicInput"
+        );
+
+
+    const name =
+        input.value.trim();
+
+
+    if(!name){
+
+        alert("Enter a topic name.");
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    /* DUPLICATE CHECK */
+
+    const exists =
+        topics.some(
+            topic =>
+                topic.name.toLowerCase() ===
+                name.toLowerCase()
+        );
+
+
+    if(exists){
+
+        alert("This topic already exists.");
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    /* CREATE TOPIC */
+
+    topics.push({
+
+        id:Date.now(),
+
+        name:name,
+
+        completed:false
+
+    });
+
+
+    saveTopics();
+
+
+    input.value="";
+
+
+    closeTopicForm();
+
+
+    renderTopics();
+
+}
+
+
+/* TOGGLE TOPIC */
+
+function toggleTopic(id){
+
+    const topic =
+        topics.find(
+            topic => topic.id === id
+        );
+
+
+    if(!topic)
+        return;
+
+
+    topic.completed =
+        !topic.completed;
+
+
+    saveTopics();
+
+
+    renderTopics();
+
+}
+
+
+/* DELETE TOPIC */
+
+function deleteTopic(id){
+
+    const topic =
+        topics.find(
+            topic => topic.id === id
+        );
+
+
+    if(!topic)
+        return;
+
+
+    if(
+        !confirm(
+            `Delete "${topic.name}"?`
+        )
+    ){
+
+        return;
+
+    }
+
+
+    topics =
+        topics.filter(
+            topic => topic.id !== id
+        );
+
+
+    saveTopics();
+
+
+    renderTopics();
+
+}
+
+
+/* ESCAPE HTML */
+
+function escapeHTML(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent=text;
+
+    return div.innerHTML;
+
+}
+
+
+/* RENDER TOPICS */
+
+function renderTopics(){
+
+    const list =
+        document.getElementById(
+            "topicList"
+        );
+
+
+    const progressText =
+        document.getElementById(
+            "topicProgressText"
+        );
+
+
+    const progressFill =
+        document.getElementById(
+            "topicProgressFill"
+        );
+
+
+    /* EMPTY */
+
+    if(topics.length===0){
+
+        list.innerHTML=`
+
+            <div class="empty-topics">
+
+                <div class="empty-icon">
+                    📚
+                </div>
+
+                <h3>
+                    No DSA Topics Yet
+                </h3>
+
+                <p>
+                    Add your first topic to start
+                    building your roadmap.
+                </p>
+
+            </div>
+
+        `;
+
+
+        progressText.textContent="0 / 0";
+
+        progressFill.style.width="0%";
+
+        return;
+
+    }
+
+
+    /* PROGRESS */
+
+    const completed =
+        topics.filter(
+            topic => topic.completed
+        ).length;
+
+
+    const total =
+        topics.length;
+
+
+    const percentage =
+        Math.round(
+            (completed / total) * 100
+        );
+
+
+    progressText.textContent =
+        `${completed} / ${total}`;
+
+
+    progressFill.style.width =
+        percentage + "%";
+
+
+    /* LIST */
+
+    list.innerHTML =
+        topics.map(topic=>`
+
+            <div
+                class="topic
+                ${topic.completed
+                    ? "completed"
+                    : ""}">
+
+                <div class="topic-left">
+
+                    <input
+                        type="checkbox"
+                        class="topic-checkbox"
+                        ${topic.completed
+                            ? "checked"
+                            : ""}
+                        onchange="
+                            toggleTopic(${topic.id})
+                        ">
+
+                    <span class="topic-name">
+                        ${escapeHTML(topic.name)}
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="delete-btn"
+                    onclick="
+                        deleteTopic(${topic.id})
+                    "
+                    title="Delete topic">
+
+                    🗑️
+
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* ENTER KEY */
+
+document
+    .getElementById("topicInput")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key==="Enter"){
+
+                addTopic();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
    START
-============================== */
+========================================================= */
 
 render();
+
+renderTopics();
 
 </script>
 
